@@ -17,25 +17,36 @@ import java.util.Iterator;
 public class Ranking extends AppCompatActivity {
 
     static ArrayList<String> records = new ArrayList<String>();
+    static int primeraVez=0;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        if(primeraVez==0){
+            records.add("   Nom    |   Puntuacio\n");
+            primeraVez=1;
+        }
         LinearLayout LinearLayoutView = new LinearLayout(this);
 
 
         TextView DisplayStringArray = new TextView(this);
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_ranking);
+
+
+
+
 
         Intent intent = getIntent();
         String nombre = intent.getStringExtra("nombre");
         int intentos=intent.getIntExtra("intentos",100);
-        String high=nombre+": "+intentos;
+        String high="   "+nombre+"              "+intentos;
 
 
-        records.add((high));
+        records.add(high);
 
        // TextView Ranking = (TextView) findViewById(R.id.Ranking);
 
@@ -48,6 +59,13 @@ public class Ranking extends AppCompatActivity {
             DisplayStringArray.append("\n");
         }
         setContentView(LinearLayoutView);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return false;
+
 
     }
 

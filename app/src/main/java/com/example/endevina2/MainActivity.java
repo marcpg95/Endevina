@@ -13,19 +13,24 @@ public class MainActivity extends AppCompatActivity {
     EditText numeroEscrito;
     EditText nombreEscrito;
     Button endevina;
+   static int random = (int)(Math.random()*1)+1;
+    static int intentos=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
         setContentView(R.layout.activity_main);
-        final int random = (int)(Math.random()*5)+1;
+
         numeroEscrito = findViewById(R.id.numero);
         nombreEscrito = findViewById(R.id.nombre);
         endevina= findViewById(R.id.button);
         String nombreIntroducido=nombreEscrito.getText().toString();
 
         endevina.setOnClickListener(new View.OnClickListener(){
-            int intentos=0;
+
 
             @Override
             public void onClick(View v) {
@@ -55,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), Ranking.class);
                         intent.putExtra("nombre", nombreEscrito.getText().toString());
                         intent.putExtra("intentos",intentos);
+                        random = (int)(Math.random()*2)+1;
+                        intentos=0;
                         startActivity(intent);
 
                     }
