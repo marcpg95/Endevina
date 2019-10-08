@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        final int random = (int)(Math.random()*100)+1;
+        final int random = (int)(Math.random()*5)+1;
         numeroEscrito = findViewById(R.id.numero);
         nombreEscrito = findViewById(R.id.nombre);
         endevina= findViewById(R.id.button);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     if (numeroIntroducido>=100){
                         Toast.makeText( MainActivity.this,  "El numero ha de ser menor a 100" , Toast.LENGTH_LONG).show();
                     }
-                    else if(numeroIntroducido<=1){
+                    else if(numeroIntroducido<1){
                         Toast.makeText( MainActivity.this,  "El numero ha de ser major a 0" , Toast.LENGTH_LONG).show();
                     }
                     else if(numeroIntroducido!=random){

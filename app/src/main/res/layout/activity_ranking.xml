@@ -8,8 +8,9 @@
 
     <TextView
         android:id="@+id/Ranking"
-        android:layout_width="266dp"
-        android:layout_height="361dp"
+        android:layout_width="244dp"
+        android:layout_height="357dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
